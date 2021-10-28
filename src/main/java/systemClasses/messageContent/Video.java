@@ -10,6 +10,9 @@ import lombok.Setter;
 @EqualsAndHashCode
 public class Video implements MessageContent {
 
+    @Getter
+    private String title;
+
     @Setter
     @Getter
     private int videoHashValue;
