@@ -3,6 +3,8 @@ package systemClasses.filters;
 import lombok.Getter;
 import lombok.Setter;
 import systemClasses.FilterResult;
+import systemClasses.Message;
+import systemClasses.User;
 import systemClasses.algorithms.Algorithm;
 
 import java.util.ArrayList;
@@ -27,13 +29,16 @@ public class FilterObj implements Filter {
     private final List<FilterResult> results;
 
     public FilterObj(Algorithm algorithm) {
+        System.out.println("Main filter has been initialized");
         this.algorithm = algorithm;
         this.results = new ArrayList<>();
     }
 
     @Override
-    public void getResult() {
-
+    public void getResult(User user, Message message) {
+        System.out.println("Main filter start working");
+        results.add(algorithm.runAlgorithm(user, message));
+        System.out.println("Main filter finished working");
     }
 
 }

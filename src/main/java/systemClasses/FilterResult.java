@@ -23,4 +23,10 @@ public class FilterResult {
      */
     private int harmPercent;
 
+    public FilterResult(User user, Message message, int harmPercent) {
+        this.user = user;
+        this.message = message;
+        this.harmPercent = harmPercent;
+    }
+
 }
