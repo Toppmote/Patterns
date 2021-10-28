@@ -7,8 +7,8 @@ import systemClasses.User;
  */
 public class DoNewPostAction extends UserAction {
 
-    public DoNewPostAction(String description, String date) {
-        super(description, date);
+    public DoNewPostAction(String date) {
+        super(date);
     }
 
     @Override

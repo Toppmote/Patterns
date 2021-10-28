@@ -7,8 +7,8 @@ import systemClasses.User;
  */
 public class AddNewFriendAction extends UserAction {
 
-    public AddNewFriendAction(String description, String date) {
-        super(description, date);
+    public AddNewFriendAction(String date) {
+        super(date);
     }
 
     @Override

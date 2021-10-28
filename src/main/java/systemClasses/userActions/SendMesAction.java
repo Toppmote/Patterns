@@ -18,8 +18,8 @@ public class SendMesAction extends UserAction {
     @Getter
     public List<User> recipientList;
 
-    public SendMesAction(String description, String date, User... recipientList) {
-        super(description, date);
+    public SendMesAction(String date, User... recipientList) {
+        super(date);
         this.recipientList = Arrays.stream(recipientList).collect(Collectors.toList());
     }
 

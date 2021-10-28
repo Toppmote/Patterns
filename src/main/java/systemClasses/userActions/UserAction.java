@@ -9,19 +9,12 @@ import systemClasses.User;
 public abstract class UserAction {
 
     /**
-     * Описание действия
-     */
-    @Getter
-    public final String description;
-
-    /**
      * Дата совершения действия
      */
     @Getter
     public final String date;
 
-    public UserAction(String description, String date) {
-        this.description = description;
+    public UserAction(String date) {
         this.date = date;
     }
 
