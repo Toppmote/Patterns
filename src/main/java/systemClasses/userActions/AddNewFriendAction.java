@@ -13,7 +13,7 @@ public class AddNewFriendAction extends UserAction {
 
     @Override
     public void doAction(User user) {
-
+        System.out.println("New friend has been added. Date " + date);
     }
 
 }

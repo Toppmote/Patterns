@@ -25,7 +25,7 @@ public class SendMesAction extends UserAction {
 
     @Override
     public void doAction(User user) {
-
+        System.out.println("New message has been sent. Date " + date);
     }
 
 }

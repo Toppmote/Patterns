@@ -6,7 +6,7 @@ import systemClasses.User;
 /**
  * Абстрактный класс, описывающий действия пользователей
  */
-public abstract class UserAction {
+public abstract class UserAction implements Action {
 
     /**
      * Дата совершения действия

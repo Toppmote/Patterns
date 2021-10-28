@@ -13,7 +13,7 @@ public class DoNewPostAction extends UserAction {
 
     @Override
     public void doAction(User user) {
-
+        System.out.println("New post has been posted. Date " + date);
     }
 
 }
