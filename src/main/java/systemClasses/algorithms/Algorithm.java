@@ -1,13 +1,17 @@
 package systemClasses.algorithms;
 
+import systemClasses.FilterResult;
+import systemClasses.Message;
+import systemClasses.User;
+
 /**
  * Интерфейс, описывающий алгоритмы фильтрации
  */
 public interface Algorithm {
 
     /**
-     * Запуск алгоритма
+     * Метод запуска алгоритма
      */
-    void runAlgorithm();
+    FilterResult runAlgorithm(User user, Message message);
 
 }
