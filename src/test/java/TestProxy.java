@@ -1,7 +1,6 @@
-package proxy;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import proxy.ProxyFilter;
 import systemClasses.Message;
 import systemClasses.User;
 import systemClasses.algorithms.FirstAlgorithm;

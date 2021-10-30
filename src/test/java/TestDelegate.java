@@ -1,5 +1,4 @@
-package delegate;
-
+import delegate.ActionDelegate;
 import org.junit.jupiter.api.Test;
 import systemClasses.User;
 import systemClasses.userActions.AddNewFriendAction;

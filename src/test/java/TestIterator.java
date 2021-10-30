@@ -1,5 +1,4 @@
-package iterator;
-
+import iterator.Iterator;
 import org.junit.jupiter.api.Test;
 import systemClasses.SystemManager;
 
