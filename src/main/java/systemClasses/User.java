@@ -47,4 +47,11 @@ public class User {
         messageList = new ArrayList<>();
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "FIO='" + FIO + '\'' +
+                ", regDate='" + regDate + '\'' +
+                '}';
+    }
 }
