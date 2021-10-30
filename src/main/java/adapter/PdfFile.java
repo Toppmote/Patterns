@@ -1,12 +1,10 @@
 package adapter;
 
-import lombok.Getter;
 import lombok.Setter;
 
 /**
  * Класс, описывающий PDF-файл
  */
-@Getter
 public class PdfFile {
 
     /**
