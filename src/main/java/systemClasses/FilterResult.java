@@ -1,11 +1,8 @@
 package systemClasses;
 
-import lombok.Getter;
-
 /**
  * Класс, описывающий результат фильтрации
  */
-@Getter
 public class FilterResult {
 
     /**
@@ -29,4 +26,16 @@ public class FilterResult {
         this.harmPercent = harmPercent;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    @Override
+    public String toString() {
+        return "FilterResult{" +
+                "author=" + user +
+                ", message=" + message +
+                ", harmPercent=" + harmPercent +
+                '}';
+    }
 }
