@@ -27,7 +27,7 @@ public class TestProxy {
         FilterObj mainFilter = new FilterObj(new FirstAlgorithm());
         ProxyFilter proxyFilter = new ProxyFilter(mainFilter);
         List<User> userList = Arrays.asList(user2, user3);
-        proxyFilter.getResult(user1, new Message(user1, userList, new Text("Some text")));
+        proxyFilter.computeResult(user1, new Message(user1, userList, new Text("Some text")));
         System.out.println("--------------------------------");
     }
 
