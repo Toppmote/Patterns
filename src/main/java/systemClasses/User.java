@@ -14,6 +14,11 @@ import java.util.List;
 public class User {
 
     /**
+     * ID пользователя. Уникально
+     */
+    private final int id;
+
+    /**
      * ФИО пользователя
      */
     @Setter
@@ -45,6 +50,7 @@ public class User {
         friendsList = new ArrayList<>();
         activityFeed = new ArrayList<>();
         messageList = new ArrayList<>();
+        this.id = this.hashCode();
     }
 
     @Override
@@ -53,5 +59,9 @@ public class User {
                 "FIO='" + FIO + '\'' +
                 ", regDate='" + regDate + '\'' +
                 '}';
+    }
+
+    public int getId() {
+        return id;
     }
 }
