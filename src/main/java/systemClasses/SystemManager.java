@@ -1,6 +1,5 @@
 package systemClasses;
 
-import bridge.Framework;
 import iterator.IterableCollection;
 import iterator.Iterator;
 import iterator.ListIterator;
@@ -26,24 +25,10 @@ public class SystemManager implements IterableCollection {
      */
     private Filter filter;
 
-    /**
-     * Фреймворк, который использует система
-     */
-    private Framework framework;
-
     public SystemManager() {
         this.userList = new ArrayList<>();
         this.filter = null;
-        this.framework = null;
         System.out.println("System manager has been initialized");
-    }
-
-    public SystemManager(Framework framework) {
-        this.userList = new ArrayList<>();
-        this.filter = null;
-        this.framework = framework;
-        System.out.println("System manager with " + framework.getClass().getName()
-                + " framework has been initialized");
     }
 
     /**
@@ -114,13 +99,4 @@ public class SystemManager implements IterableCollection {
         this.filter = filter;
     }
 
-    public void frameworkOperation() {
-        framework.operation();
-    }
-
-    public void setFramework(Framework framework) {
-        this.framework = framework;
-        System.out.println("Framework " + framework.getClass().getName()
-                + " has been set");
-    }
 }
