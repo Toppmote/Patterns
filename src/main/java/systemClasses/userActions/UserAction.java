@@ -1,6 +1,6 @@
 package systemClasses.userActions;
 
-import lombok.Getter;
+import bridge.Framework;
 import systemClasses.User;
 
 /**
@@ -11,11 +11,16 @@ public abstract class UserAction implements Action {
     /**
      * Дата совершения действия
      */
-    @Getter
     public final String date;
 
-    public UserAction(String date) {
+    /**
+     * Фреймворк, который выполняется при выполнении действий
+     */
+    public Framework framework;
+
+    public UserAction(String date, Framework framework) {
         this.date = date;
+        this.framework = framework;
     }
 
     /**
@@ -24,4 +29,11 @@ public abstract class UserAction implements Action {
      */
     public abstract void doAction(User user);
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setFramework(Framework framework) {
+        this.framework = framework;
+    }
 }
