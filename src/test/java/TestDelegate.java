@@ -1,3 +1,4 @@
+import bridge.Hibernate;
 import delegate.ActionDelegate;
 import org.junit.jupiter.api.Test;
 import systemClasses.User;
@@ -11,13 +12,13 @@ public class TestDelegate {
     void testDelegate() {
         System.out.println("-----------DELEGATE TEST-----------");
         User user = new User("User", "01.01.2021");
-        ActionDelegate actionDelegate = new ActionDelegate(new AddNewFriendAction("29.10.2021"));
+        ActionDelegate actionDelegate = new ActionDelegate(new AddNewFriendAction("29.10.2021", new Hibernate()));
         actionDelegate.doAction(user);
 
-        actionDelegate.setAction(new DoNewPostAction("29.10.2021"));
+        actionDelegate.setAction(new DoNewPostAction("29.10.2021", new Hibernate()));
         actionDelegate.doAction(user);
 
-        actionDelegate.setAction(new SendMesAction("29.10.2021"));
+        actionDelegate.setAction(new SendMesAction("29.10.2021", new Hibernate()));
         actionDelegate.doAction(user);
         System.out.println("-----------------------------------");
     }
