@@ -3,7 +3,7 @@ package iterator;
 import java.util.List;
 
 /**
- * Класс, реализующий интерфейс {@link Iterator}
+ * Класс, реализующий интерфейс {@link Iterator}. Применяется для коллекций-реализаций интерфейса {@link java.util.List}
  *
  * @param <E> итерируемый класс
  */
