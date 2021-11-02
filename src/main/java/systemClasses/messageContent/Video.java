@@ -2,6 +2,8 @@ package systemClasses.messageContent;
 
 import prototype.CloneableObj;
 
+import java.util.Objects;
+
 /**
  * Класс, реализующий видеоконтент сообщения
  */
@@ -44,5 +46,18 @@ public class Video implements MessageContent {
 
     public void setVideoHashValue(int videoHashValue) {
         this.videoHashValue = videoHashValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Video video = (Video) o;
+        return getVideoHashValue() == video.getVideoHashValue() && Objects.equals(getTitle(), video.getTitle());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTitle(), getVideoHashValue());
     }
 }

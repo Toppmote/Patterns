@@ -8,6 +8,7 @@ import systemClasses.messageContent.MessageContent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -47,6 +48,21 @@ public class Message implements CloneableObj {
     @Override
     public CloneableObj clone() {
         return new Message(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Message message = (Message) o;
+        return Objects.equals(getSender(), message.getSender())
+                && Objects.equals(getRecipientList(), message.getRecipientList())
+                && Objects.equals(getMessageContent(), message.getMessageContent());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSender(), getRecipientList(), getMessageContent());
     }
 
     public User getSender() {

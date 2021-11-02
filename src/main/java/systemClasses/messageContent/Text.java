@@ -2,6 +2,8 @@ package systemClasses.messageContent;
 
 import prototype.CloneableObj;
 
+import java.util.Objects;
+
 /**
  * Класс, реализующий текст сообщения
  */
@@ -24,7 +26,7 @@ public class Text implements MessageContent {
 
     @Override
     public CloneableObj clone() {
-        return null;
+        return new Text(this);
     }
 
     public String getTextValue() {
@@ -33,5 +35,18 @@ public class Text implements MessageContent {
 
     public void setTextValue(String textValue) {
         this.textValue = textValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Text text = (Text) o;
+        return Objects.equals(getTextValue(), text.getTextValue());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTextValue());
     }
 }

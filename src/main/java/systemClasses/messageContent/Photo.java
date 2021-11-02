@@ -2,6 +2,8 @@ package systemClasses.messageContent;
 
 import prototype.CloneableObj;
 
+import java.util.Objects;
+
 /**
  * Класс, реализующий фотоконтент сообщения
  */
@@ -33,5 +35,18 @@ public class Photo implements MessageContent {
 
     public void setPhotoValue(int photoValue) {
         PhotoValue = photoValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Photo photo = (Photo) o;
+        return getPhotoValue() == photo.getPhotoValue();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPhotoValue());
     }
 }
