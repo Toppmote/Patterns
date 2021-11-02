@@ -39,7 +39,9 @@ public class Message implements CloneableObj {
     public Message(Message message) {
         this.sender = message.getSender();
         this.recipientList = new ArrayList<>(message.getRecipientList());
-        this.messageContent = new ArrayList<>(message.getMessageContent());
+        this.messageContent = new ArrayList<>();
+        for (MessageContent content : message.messageContent)
+            this.messageContent.add((MessageContent) content.clone());
     }
 
     @Override

@@ -1,16 +1,16 @@
 package adapter;
 
 import lombok.Setter;
+import prototype.CloneableObj;
 
 /**
  * Класс, описывающий PDF-файл
  */
-public class PdfFile {
+public class PdfFile implements CloneableObj {
 
     /**
      * Название файла
      */
-    @Setter
     private String title;
 
     /**
@@ -30,6 +30,12 @@ public class PdfFile {
         System.out.println("PDF file \"" + title + "\" has been created");
     }
 
+    public PdfFile(PdfFile file) {
+        this.title = file.getTitle();
+        this.content = file.getContent();
+        this.size = file.getSize();
+    }
+
     /**
      * Метод вычисления размера файла
      *
@@ -38,6 +44,10 @@ public class PdfFile {
      */
     private int computeSize(String content) {
         return content.length() * 2;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     /**
@@ -61,4 +71,10 @@ public class PdfFile {
     public int getSize() {
         return size;
     }
+
+    @Override
+    public CloneableObj clone() {
+        return new PdfFile(this);
+    }
+
 }

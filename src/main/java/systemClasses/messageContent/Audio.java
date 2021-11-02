@@ -1,21 +1,20 @@
 package systemClasses.messageContent;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import prototype.CloneableObj;
 
 /**
  * Класс, реализующий аудиоконтент сообщения
  */
-@EqualsAndHashCode
 public class Audio implements MessageContent {
 
-    @Setter
-    @Getter
     private int audioHashValue;
 
     public Audio(int audioHashValue) {
         this.audioHashValue = audioHashValue;
+    }
+
+    public Audio(Audio audio) {
+        this.audioHashValue = audio.getAudioHashValue();
     }
 
     @Override
@@ -23,4 +22,16 @@ public class Audio implements MessageContent {
         return this.hashCode();
     }
 
+    @Override
+    public CloneableObj clone() {
+        return new Audio(this);
+    }
+
+    public int getAudioHashValue() {
+        return audioHashValue;
+    }
+
+    public void setAudioHashValue(int audioHashValue) {
+        this.audioHashValue = audioHashValue;
+    }
 }

@@ -1,24 +1,23 @@
 package systemClasses.messageContent;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import prototype.CloneableObj;
 
 /**
  * Класс, реализующий видеоконтент сообщения
  */
-@EqualsAndHashCode
 public class Video implements MessageContent {
 
-    @Getter
     private String title;
 
-    @Setter
-    @Getter
     private int videoHashValue;
 
     public Video(int videoHashValue) {
         this.videoHashValue = videoHashValue;
+    }
+
+    public Video(Video video) {
+        this.title = video.getTitle();
+        this.videoHashValue = video.getVideoHashValue();
     }
 
     @Override
@@ -26,4 +25,24 @@ public class Video implements MessageContent {
         return this.hashCode();
     }
 
+    @Override
+    public CloneableObj clone() {
+        return new Video(this);
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getVideoHashValue() {
+        return videoHashValue;
+    }
+
+    public void setVideoHashValue(int videoHashValue) {
+        this.videoHashValue = videoHashValue;
+    }
 }

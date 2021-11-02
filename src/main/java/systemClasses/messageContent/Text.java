@@ -1,21 +1,20 @@
 package systemClasses.messageContent;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import prototype.CloneableObj;
 
 /**
  * Класс, реализующий текст сообщения
  */
-@EqualsAndHashCode
 public class Text implements MessageContent {
 
-    @Setter
-    @Getter
     private String textValue;
 
     public Text(String textValue) {
         this.textValue = textValue;
+    }
+
+    public Text(Text text) {
+        this.textValue = text.getTextValue();
     }
 
     @Override
@@ -23,4 +22,16 @@ public class Text implements MessageContent {
         return 0;
     }
 
+    @Override
+    public CloneableObj clone() {
+        return null;
+    }
+
+    public String getTextValue() {
+        return textValue;
+    }
+
+    public void setTextValue(String textValue) {
+        this.textValue = textValue;
+    }
 }

@@ -1,6 +1,7 @@
 package adapter;
 
 import lombok.Setter;
+import prototype.CloneableObj;
 import systemClasses.messageContent.MessageContent;
 
 import java.util.Objects;
@@ -21,7 +22,7 @@ public class PdfAdapter implements MessageContent {
         System.out.println("PDF adapter has been initialized with PDF file");
     }
 
-    public PdfAdapter() {
+    public PdfAdapter(PdfAdapter adapter) {
         this.adaptable = null;
         System.out.println("PDF adapter has been initialized without PDF file");
     }
@@ -29,5 +30,10 @@ public class PdfAdapter implements MessageContent {
     @Override
     public int getContentHashCode() {
         return Objects.hash(adaptable.getTitle(), adaptable.getContent(), adaptable.getSize());
+    }
+
+    @Override
+    public CloneableObj clone() {
+        return new PdfAdapter(this);
     }
 }
