@@ -12,12 +12,29 @@ import java.util.List;
 public class SystemFacade {
 
     /**
+     * Поле, хранящее ссылку на объекта-одиночку
+     */
+    private static SystemFacade instance;
+
+    /**
      * Менеджер системы обнаружения спама
      */
-    SystemManager manager;
+    private SystemManager manager;
 
-    public SystemFacade(SystemManager manager) {
+    private SystemFacade(SystemManager manager) {
         this.manager = manager;
+    }
+
+    /**
+     * Реализвация паттерна-одиночки
+     * @param manager системный менеджер
+     * @return ссылка на класс SystemFacade
+     */
+    public static SystemFacade getInstance(SystemManager manager) {
+        if (instance == null) {
+            instance = new SystemFacade(manager);
+        }
+        return instance;
     }
 
     /**
