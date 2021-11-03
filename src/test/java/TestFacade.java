@@ -42,7 +42,7 @@ public class TestFacade {
     @Test
     void testFacade() {
         System.out.println("-----------FACADE TEST-----------");
-        SystemFacade facade = new SystemFacade(systemManager);
+        SystemFacade facade = SystemFacade.getInstance(systemManager);
         facade.findUsersByFIO("User2");
         facade.findUsersByFIO("User0");
         facade.findFilterResultsByUserID(user1.getId());
