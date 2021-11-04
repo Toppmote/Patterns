@@ -16,7 +16,7 @@ public class WindowsTextBox extends TextBox {
     @Override
     public void writeIn(String text) {
         this.textValue = text;
-        System.out.println("Text was written in Android TextBox" + this.id);
+        System.out.println("Text was written in Android TextBox with ID: " + this.id);
     }
 }
 
