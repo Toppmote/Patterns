@@ -3,7 +3,7 @@ package composite;
 /**
  * Простой компонент GUI, не имеющий ветвлений
  */
-public class GraphicalPrimitive extends GraphicalComponent {
+public abstract class GraphicalPrimitive extends GraphicalComponent {
 
     public GraphicalPrimitive(String id) {
         super(id);
