@@ -1,9 +1,11 @@
 package abstractFactory.components;
 
+import composite.GraphicalPrimitive;
+
 /**
  * Абстрактный класс, реализующий текстовое поле
  */
-public abstract class TextBox {
+public abstract class TextBox extends GraphicalPrimitive {
 
     /**
      * ID TextBox
@@ -16,6 +18,7 @@ public abstract class TextBox {
     protected String textValue;
 
     public TextBox(String id) {
+        super(id);
         this.id = id;
     }
 

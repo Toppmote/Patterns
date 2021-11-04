@@ -1,9 +1,11 @@
 package abstractFactory.components;
 
+import composite.GraphicalPrimitive;
+
 /**
  * Абстрактный класс, реализующий кнопку
  */
-public abstract class Button {
+public abstract class Button extends GraphicalPrimitive {
 
     /**
      * ID кнопки
@@ -11,6 +13,7 @@ public abstract class Button {
     protected final String id;
 
     public Button(String id) {
+        super(id);
         this.id = id;
     }
 
