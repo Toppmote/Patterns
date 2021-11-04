@@ -12,6 +12,6 @@ public interface PrimitiveCreator {
      * @param id ID примитива
      * @return созданный примитив
      */
-    GraphicalPrimitive createAlgorithm(String id);
+    GraphicalPrimitive createPrimitive(String id);
 
 }

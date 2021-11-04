@@ -10,7 +10,7 @@ import composite.GraphicalPrimitive;
 public class AndroidPrimitiveCreator implements PrimitiveCreator {
 
     @Override
-    public GraphicalPrimitive createAlgorithm(String id) {
+    public GraphicalPrimitive createPrimitive(String id) {
         return new AndroidPrimitive(id);
     }
 }

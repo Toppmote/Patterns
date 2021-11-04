@@ -10,7 +10,7 @@ import composite.WindowsPrimitive;
 public class WindowsPrimitiveCreator implements PrimitiveCreator {
 
     @Override
-    public GraphicalPrimitive createAlgorithm(String id) {
+    public GraphicalPrimitive createPrimitive(String id) {
         return new WindowsPrimitive(id);
     }
 }

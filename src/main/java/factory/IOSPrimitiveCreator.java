@@ -1,7 +1,7 @@
 package factory;
 
-import composite.AndroidPrimitive;
 import composite.GraphicalPrimitive;
+import composite.IOSPrimitive;
 
 /**
  * Класс-реализация создателя примитивов, создающий примитивы под IOS
@@ -10,7 +10,7 @@ import composite.GraphicalPrimitive;
 public class IOSPrimitiveCreator implements PrimitiveCreator {
 
     @Override
-    public GraphicalPrimitive createAlgorithm(String id) {
-        return new AndroidPrimitive(id);
+    public GraphicalPrimitive createPrimitive(String id) {
+        return new IOSPrimitive(id);
     }
 }
