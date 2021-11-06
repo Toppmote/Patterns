@@ -15,10 +15,10 @@ public class MessageDirector {
     /**
      * Объект строителя сообщения
      */
-    private final Builder<Message> builder;
+    private final MessageBuilder builder;
 
-    public MessageDirector(Builder<Message> builder) {
-        this.builder = builder;
+    public MessageDirector() {
+        this.builder = new MessageBuilder();
     }
 
     /**
@@ -29,7 +29,7 @@ public class MessageDirector {
      * @return пустое письмо
      */
     public Message createEmptyMessage(User sender, List<User> recipientList) {
-        return Message.builder()
+        return builder
                 .sender(sender)
                 .recipientList(recipientList)
                 .build();
@@ -44,7 +44,7 @@ public class MessageDirector {
      * @return текстовое сообщение
      */
     public Message createTextMessage(User sender, List<User> recipientList, Text text) {
-        return Message.builder()
+        return builder
                 .sender(sender)
                 .recipientList(recipientList)
                 .contentList(Collections.singletonList(text))
