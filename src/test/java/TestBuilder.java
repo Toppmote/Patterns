@@ -33,11 +33,12 @@ public class TestBuilder {
     void testBuilder() {
         System.out.println("-----------BUILDER TEST-----------");
         MessageDirector director = new MessageDirector();
-
         Message emptyMessage = director.createEmptyMessage(user1, Arrays.asList(user2, user3));
+        System.out.println("Empty message created by director:");
         System.out.println(emptyMessage);
 
         Message messageWithText = director.createTextMessage(user1, Arrays.asList(user2, user3), text);
+        System.out.println("Message with text created by director:");
         System.out.println(messageWithText);
 
         Message messageWithContent = Message.builder()
@@ -45,6 +46,7 @@ public class TestBuilder {
                 .recipientList(Arrays.asList(user2, user3))
                 .contentList(Arrays.asList(text, photo, video))
                 .build();
+        System.out.println("Message with content created by Message.builder():");
         System.out.println(messageWithContent);
 
         System.out.println("----------------------------------");
