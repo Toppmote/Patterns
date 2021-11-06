@@ -13,11 +13,7 @@ public class MessageBuilder implements Builder<Message> {
 
     private Message message;
 
-    /**
-     * Инициализация строителя
-     */
-    @Override
-    public void builder() {
+    public MessageBuilder() {
         this.message = new Message();
     }
 

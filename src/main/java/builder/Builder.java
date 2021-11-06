@@ -8,11 +8,6 @@ package builder;
 public interface Builder<E> {
 
     /**
-     * Инициализация строителя
-     */
-    void builder();
-
-    /**
      * Получение результатов работы строителя
      *
      * @return построенный объект
