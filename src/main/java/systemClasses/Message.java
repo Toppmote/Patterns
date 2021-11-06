@@ -32,7 +32,8 @@ public class Message implements CloneableObj {
 
     public Message() {
         sender = null;
-        recipientList = null;
+        recipientList = new ArrayList<>();
+        messageContent = new ArrayList<>();
     }
 
     public Message(User sender, List<User> recipientList, MessageContent... messageContent) {
@@ -71,6 +72,7 @@ public class Message implements CloneableObj {
 
     /**
      * Статический метод, созвращающий объект строителя для удобного создания экземпляра сообщения
+     *
      * @return объект строителя сообщения
      */
     public static MessageBuilder builder() {
@@ -99,5 +101,25 @@ public class Message implements CloneableObj {
 
     public void setMessageContent(List<MessageContent> messageContent) {
         this.messageContent = messageContent;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuffer = new StringBuilder();
+        stringBuffer.append("Sender: ")
+                .append(sender.toString())
+                .append("\nRecipient list:\n");
+        for (User recipient : recipientList)
+            stringBuffer.append(recipient.toString())
+                    .append("\n");
+        if (messageContent.size() != 0) {
+            stringBuffer.append("MessageContent:\n");
+            for (MessageContent content : messageContent)
+                stringBuffer.append(content.getClass().getSimpleName())
+                        .append(": ")
+                        .append(content)
+                        .append("\n");
+        }
+        return stringBuffer.toString();
     }
 }
