@@ -1,5 +1,6 @@
 package systemClasses;
 
+import builder.MessageBuilder;
 import prototype.CloneableObj;
 import systemClasses.messageContent.MessageContent;
 
@@ -66,6 +67,14 @@ public class Message implements CloneableObj {
     @Override
     public int hashCode() {
         return Objects.hash(getSender(), getRecipientList(), getMessageContent());
+    }
+
+    /**
+     * Статический метод, созвращающий объект строителя для удобного создания экземпляра сообщения
+     * @return объект строителя сообщения
+     */
+    public static MessageBuilder builder() {
+        return new MessageBuilder();
     }
 
     public User getSender() {
