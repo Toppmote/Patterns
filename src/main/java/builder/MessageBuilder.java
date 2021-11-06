@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class MessageBuilder implements Builder<Message> {
 
-    private Message message;
+    private final Message message;
 
     public MessageBuilder() {
         this.message = new Message();
