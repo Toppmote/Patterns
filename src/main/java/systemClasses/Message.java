@@ -1,7 +1,5 @@
 package systemClasses;
 
-import lombok.Getter;
-import lombok.Setter;
 import prototype.CloneableObj;
 import systemClasses.messageContent.MessageContent;
 
@@ -19,17 +17,22 @@ public class Message implements CloneableObj {
     /**
      * Отправитель
      */
-    private final User sender;
+    private User sender;
 
     /**
      * Список получателей
      */
-    private final List<User> recipientList;
+    private List<User> recipientList;
 
     /**
      * Контент сообшения
      */
     private List<MessageContent> messageContent;
+
+    public Message() {
+        sender = null;
+        recipientList = null;
+    }
 
     public Message(User sender, List<User> recipientList, MessageContent... messageContent) {
         this.sender = sender;
@@ -75,6 +78,14 @@ public class Message implements CloneableObj {
 
     public List<MessageContent> getMessageContent() {
         return messageContent;
+    }
+
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public void setRecipientList(List<User> recipientList) {
+        this.recipientList = recipientList;
     }
 
     public void setMessageContent(List<MessageContent> messageContent) {
