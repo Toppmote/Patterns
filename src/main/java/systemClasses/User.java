@@ -2,6 +2,8 @@ package systemClasses;
 
 import lombok.Getter;
 import lombok.Setter;
+import state.UnverifiedState;
+import state.UserState;
 import systemClasses.userActions.UserAction;
 
 import java.util.ArrayList;
@@ -10,7 +12,6 @@ import java.util.List;
 /**
  * Класс, описывающий пользователя социальной сети
  */
-@Getter
 public class User {
 
     /**
@@ -21,7 +22,6 @@ public class User {
     /**
      * ФИО пользователя
      */
-    @Setter
     public String FIO;
 
     /**
@@ -44,6 +44,11 @@ public class User {
      */
     private final List<Message> messageList;
 
+    /**
+     * Состояние пользователя
+     */
+    private UserState state;
+
     public User(String FIO, String regDate) {
         this.FIO = FIO;
         this.regDate = regDate;
@@ -51,6 +56,14 @@ public class User {
         activityFeed = new ArrayList<>();
         messageList = new ArrayList<>();
         this.id = this.hashCode();
+        this.state = new UnverifiedState(this);
+    }
+
+    /**
+     * Метод входа в соц. сеть
+     */
+    public void logIn() {
+        this.state.onLoggingIn();
     }
 
     @Override
@@ -63,5 +76,21 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    public UserState getState() {
+        return state;
+    }
+
+    public void setState(UserState state) {
+        this.state = state;
+    }
+
+    public String getFIO() {
+        return FIO;
+    }
+
+    public void setFIO(String FIO) {
+        this.FIO = FIO;
     }
 }
