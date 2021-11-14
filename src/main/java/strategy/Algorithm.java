@@ -1,4 +1,4 @@
-package systemClasses.algorithms;
+package strategy;
 
 import systemClasses.FilterResult;
 import systemClasses.Message;
