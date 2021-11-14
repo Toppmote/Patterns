@@ -5,7 +5,7 @@ import systemClasses.FilterResult;
 import systemClasses.Message;
 import systemClasses.SystemManager;
 import systemClasses.User;
-import systemClasses.algorithms.FirstAlgorithm;
+import strategy.SpamAlgorithm;
 import systemClasses.filters.FilterObj;
 import systemClasses.messageContent.Text;
 
@@ -32,7 +32,7 @@ public class TestSingleton {
         systemManager.addUser(user3);
         FilterResult result1 = new FilterResult(user1, message1, 5);
         FilterResult result2 = new FilterResult(user2, message2, 2);
-        FilterObj filter = new FilterObj(new FirstAlgorithm());
+        FilterObj filter = new FilterObj(new SpamAlgorithm());
         filter.addFilterResult(result1);
         filter.addFilterResult(result2);
         systemManager.setFilter(filter);

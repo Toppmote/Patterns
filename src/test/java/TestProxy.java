@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import proxy.ProxyFilter;
 import systemClasses.Message;
 import systemClasses.User;
-import systemClasses.algorithms.FirstAlgorithm;
+import strategy.SpamAlgorithm;
 import systemClasses.filters.FilterObj;
 import systemClasses.messageContent.Text;
 
@@ -24,7 +24,7 @@ public class TestProxy {
     @Test
     void testProxy() {
         System.out.println("-----------PROXY TEST-----------");
-        FilterObj mainFilter = new FilterObj(new FirstAlgorithm());
+        FilterObj mainFilter = new FilterObj(new SpamAlgorithm());
         ProxyFilter proxyFilter = new ProxyFilter(mainFilter);
         List<User> userList = Arrays.asList(user2, user3);
         proxyFilter.computeResult(user1, new Message(user1, userList, new Text("Some text")));
