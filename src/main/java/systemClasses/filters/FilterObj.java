@@ -1,11 +1,9 @@
 package systemClasses.filters;
 
-import lombok.Getter;
-import lombok.Setter;
 import systemClasses.FilterResult;
 import systemClasses.Message;
 import systemClasses.User;
-import systemClasses.algorithms.Algorithm;
+import strategy.Algorithm;
 
 import java.util.ArrayList;
 import java.util.List;
