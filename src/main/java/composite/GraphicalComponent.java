@@ -1,5 +1,7 @@
 package composite;
 
+import visitor.ExportVisitor;
+
 import java.util.NoSuchElementException;
 
 /**
@@ -49,5 +51,16 @@ public abstract class GraphicalComponent {
     public boolean isComposite() {
         return false;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Метод экспортирования примитива в необходимый формат
+     * @param visitor реализация поситителя-экспортера, экспортирующего
+     * @return строка в экспортируемом формате
+     */
+    public abstract String export(ExportVisitor visitor);
 
 }

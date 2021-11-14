@@ -2,6 +2,8 @@ package composite;
 
 /**
  * Простой компонент GUI, не имеющий ветвлений
+ *
+ * @see composite.GraphicalComponent
  */
 public abstract class GraphicalPrimitive extends GraphicalComponent {
 

@@ -1,18 +1,23 @@
 package composite;
 
+import visitor.ExportVisitor;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * Составной компонент GUI, не имеющий ветвлений
+ *
+ * @see composite.GraphicalComponent
+ * @see ExportVisitor
  */
 public class CompositeGraphicalComponent extends GraphicalComponent {
 
     /**
      * Список графических примитивов, входящих в состав составного графического компонента
      */
-    List<GraphicalComponent> componentList;
+    public List<GraphicalComponent> componentList;
 
     public CompositeGraphicalComponent(String id, GraphicalComponent... primitiveList) {
         super(id);
@@ -60,5 +65,10 @@ public class CompositeGraphicalComponent extends GraphicalComponent {
     @Override
     public boolean isComposite() {
         return true;
+    }
+
+    @Override
+    public String export(ExportVisitor visitor) {
+        return visitor.exportCompositeComponent(this);
     }
 }
