@@ -2,6 +2,8 @@ package systemClasses;
 
 import lombok.Getter;
 import lombok.Setter;
+import memento.Memento;
+import memento.UserSnapshot;
 import state.UnverifiedState;
 import state.UserState;
 import systemClasses.userActions.UserAction;
@@ -68,10 +70,13 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "FIO='" + FIO + '\'' +
-                ", regDate='" + regDate + '\'' +
-                '}';
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("User{" + "FIO='").append(FIO).append('\'')
+                .append(", regDate='").append(regDate).append('\'')
+                .append('}');
+        for (Message message : messageList)
+            stringBuilder.append("\n").append(message);
+        return stringBuilder.toString();
     }
 
     public int getId() {
@@ -93,4 +98,48 @@ public class User {
     public void setFIO(String FIO) {
         this.FIO = FIO;
     }
+
+    public String getRegDate() {
+        return regDate;
+    }
+
+    public List<User> getFriendsList() {
+        return friendsList;
+    }
+
+    public List<UserAction> getActivityFeed() {
+        return activityFeed;
+    }
+
+    public List<Message> getMessageList() {
+        return messageList;
+    }
+
+    /**
+     * Процедура добавления друга
+     *
+     * @param friend новый друг
+     */
+    public void addFriend(User friend) {
+        this.friendsList.add(friend);
+    }
+
+    /**
+     * Процедура отправки сообщения
+     *
+     * @param message сообщение
+     */
+    public void sendMessage(Message message) {
+        this.messageList.add(message);
+    }
+
+    /**
+     * Метод создания снимка
+     *
+     * @return новый снимок
+     */
+    public Memento takeSnapshot() {
+        return new UserSnapshot(this);
+    }
+
 }
