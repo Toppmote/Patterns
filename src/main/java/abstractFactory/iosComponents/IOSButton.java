@@ -1,6 +1,7 @@
 package abstractFactory.iosComponents;
 
 import abstractFactory.components.Button;
+import visitor.ExportVisitor;
 
 /**
  * Класс кнопки платформы IOS
@@ -11,6 +12,11 @@ public class IOSButton extends Button {
 
     public IOSButton(String id) {
         super(id);
+    }
+
+    @Override
+    public String export(ExportVisitor visitor) {
+        return null;
     }
 
     @Override

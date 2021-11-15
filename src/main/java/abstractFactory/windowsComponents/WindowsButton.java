@@ -1,6 +1,7 @@
 package abstractFactory.windowsComponents;
 
 import abstractFactory.components.Button;
+import visitor.ExportVisitor;
 
 /**
  * Класс кнопки платформы Windows
@@ -11,6 +12,11 @@ public class WindowsButton extends Button {
 
     public WindowsButton(String id) {
         super(id);
+    }
+
+    @Override
+    public String export(ExportVisitor visitor) {
+        return null;
     }
 
     @Override

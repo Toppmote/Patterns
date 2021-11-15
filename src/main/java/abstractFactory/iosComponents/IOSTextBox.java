@@ -1,6 +1,7 @@
 package abstractFactory.iosComponents;
 
 import abstractFactory.components.TextBox;
+import visitor.ExportVisitor;
 
 /**
  * TextBox платформы IOS
@@ -11,6 +12,11 @@ public class IOSTextBox extends TextBox {
 
     public IOSTextBox(String id) {
         super(id);
+    }
+
+    @Override
+    public String export(ExportVisitor visitor) {
+        return null;
     }
 
     @Override

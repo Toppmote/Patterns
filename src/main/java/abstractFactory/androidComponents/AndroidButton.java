@@ -1,6 +1,7 @@
 package abstractFactory.androidComponents;
 
 import abstractFactory.components.Button;
+import visitor.ExportVisitor;
 
 /**
  * Класс кнопки платформы Android
@@ -11,6 +12,11 @@ public class AndroidButton extends Button {
 
     public AndroidButton(String id) {
         super(id);
+    }
+
+    @Override
+    public String export(ExportVisitor visitor) {
+        return null;
     }
 
     @Override

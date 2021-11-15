@@ -1,6 +1,7 @@
 package abstractFactory.windowsComponents;
 
 import abstractFactory.components.TextBox;
+import visitor.ExportVisitor;
 
 /**
  * TextBox платформы Windows
@@ -11,6 +12,11 @@ public class WindowsTextBox extends TextBox {
 
     public WindowsTextBox(String id) {
         super(id);
+    }
+
+    @Override
+    public String export(ExportVisitor visitor) {
+        return null;
     }
 
     @Override

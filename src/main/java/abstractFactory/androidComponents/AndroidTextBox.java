@@ -1,6 +1,7 @@
 package abstractFactory.androidComponents;
 
 import abstractFactory.components.TextBox;
+import visitor.ExportVisitor;
 
 /**
  * TextBox платформы Android
@@ -11,6 +12,11 @@ public class AndroidTextBox extends TextBox {
 
     public AndroidTextBox(String id) {
         super(id);
+    }
+
+    @Override
+    public String export(ExportVisitor visitor) {
+        return null;
     }
 
     @Override
