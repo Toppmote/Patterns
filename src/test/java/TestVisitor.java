@@ -17,8 +17,9 @@ public class TestVisitor {
         CompositeGraphicalComponent compositeGraphicalComponent =
                 new CompositeGraphicalComponent("comp1", androidPrimitive, iosPrimitive, windowsPrimitive);
         ExportVisitor visitor = new XMLExportVisitor();
-        System.out.println(visitor.exportComponents(compositeGraphicalComponent));
 
+        System.out.println("\nXML file:");
+        System.out.println(visitor.exportComponents(compositeGraphicalComponent));
         System.out.println("----------------------------------");
     }
 
