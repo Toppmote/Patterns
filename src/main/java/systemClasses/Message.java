@@ -109,9 +109,9 @@ public class Message implements CloneableObj {
         stringBuffer.append("Recipient list:");
         for (User recipient : recipientList)
             stringBuffer.append("ID: ").append(recipient.getId())
-                    .append(", FIO: ").append(recipient.getFIO());
+                    .append(", FIO: ").append(recipient.getFIO()).append("\n");
         if (messageContent.size() != 0) {
-            stringBuffer.append("\nMessageContent:");
+            stringBuffer.append("MessageContent:");
             for (MessageContent content : messageContent)
                 stringBuffer.append(content.getClass().getSimpleName())
                         .append(": ")

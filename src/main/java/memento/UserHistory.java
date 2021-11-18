@@ -49,4 +49,22 @@ public class UserHistory {
     public User getUser() {
         return user;
     }
+
+    /**
+     * Процедура отката последних изменений
+     */
+    public void undo() {
+        if (this.mementoList.size() == 0)
+            return;
+        Memento lastMemento = this.mementoList.get(this.mementoList.size() - 1);
+        this.mementoList.remove(lastMemento);
+        try {
+            this.user.undoLastChanges(lastMemento);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            this.undo();
+        }
+    }
+
 }

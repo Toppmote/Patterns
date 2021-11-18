@@ -10,6 +10,8 @@ import systemClasses.userActions.UserAction;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Класс, описывающий пользователя социальной сети
@@ -74,6 +76,10 @@ public class User {
         stringBuilder.append("User{" + "FIO='").append(FIO).append('\'')
                 .append(", regDate='").append(regDate).append('\'')
                 .append('}');
+        stringBuilder.append("\nFriends:\n");
+        for (User friend : friendsList)
+            stringBuilder.append("ID:").append(friend.getId()).append(", FIO: ").append(friend.getFIO()).append("\n");
+        stringBuilder.append("\nMessages:\n");
         for (Message message : messageList)
             stringBuilder.append("\n").append(message);
         return stringBuilder.toString();
@@ -125,6 +131,13 @@ public class User {
     }
 
     /**
+     * Процедура удаления друга
+     *
+     * @param friend удаляемый друг
+     */
+    public void deleteFriend(User friend) { this.friendsList.remove(friend);}
+
+    /**
      * Процедура отправки сообщения
      *
      * @param message сообщение
@@ -140,6 +153,24 @@ public class User {
      */
     public Memento takeSnapshot() {
         return new UserSnapshot(this);
+    }
+
+    /**
+     * Процедура восстановления объекта из снимка
+     * @param memento снимок объекта
+     * @throws CloneNotSupportedException исключение, выбрасываемое при передаче снимка другого объекта
+     */
+    public void undoLastChanges(Memento memento) throws CloneNotSupportedException {
+        if (!(memento instanceof UserSnapshot))
+            throw new CloneNotSupportedException();
+        this.FIO = memento.getFIO();
+        this.state = memento.getState();
+        this.friendsList.clear();
+        this.friendsList.addAll(memento.getFriendsList());
+        this.activityFeed.clear();
+        this.activityFeed.addAll(memento.getActivityFeed());
+        this.messageList.clear();
+        this.messageList.addAll(memento.getMessagesList());
     }
 
 }

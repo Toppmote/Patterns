@@ -38,15 +38,28 @@ public class TestMemento {
         user1.addFriend(user3);
         userHistory.save();
 
-        System.out.println("Snapshots for user with id: " + userHistory.getUser().getId() + "\n");
+        System.out.println("\nSnapshots for user with id: " + userHistory.getUser().getId());
         List<Memento> userSnapshots = userHistory.getHistory();
         for (Memento snapshot : userSnapshots) {
             System.out.println("Snapshot date: " + snapshot.getDate());
             System.out.println("User FIO: " + snapshot.getFIO());
-            System.out.println("User friends: " + snapshot.getFriendsList());
-            System.out.println("User messages:\n" + snapshot.getMessagesList());
+            System.out.println("User friends:");
+            for (User friend : snapshot.getFriendsList())
+                System.out.println("ID: " + friend.getId() + ", FIO: " + friend.getFIO());
+            System.out.println("User messages:");
+            for (Message message : snapshot.getMessagesList())
+                System.out.println(message);
             System.out.println();
         }
+
+        System.out.println("Changed username");
+        user1.setFIO("Super cool User1");
+        user1.deleteFriend(user3);
+        System.out.println(user1);
+
+        userHistory.undo();
+        System.out.println("\nUndo last changes");
+        System.out.println(user1);
 
         System.out.println("----------------------------------");
     }
