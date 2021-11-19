@@ -11,10 +11,12 @@ public class TestState {
         User user = new User("User1", "14.11.2021");
         user.logIn();
         System.out.println();
-        user.setState(new VerifiedState(user));
+
+        User.doVerification(user);
         user.logIn();
         System.out.println();
-        user.setState(new BlockedState(user));
+
+        user.doBadPost();
         user.logIn();
         System.out.println("--------------------------------");
     }
