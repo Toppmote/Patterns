@@ -1,5 +1,6 @@
 package systemClasses;
 
+import chainOfResponsibility.BaseCheck;
 import iterator.IterableCollection;
 import iterator.Iterator;
 import iterator.ListIterator;
@@ -20,6 +21,8 @@ public class SystemManager implements IterableCollection {
      */
     private final List<User> userList;
 
+    private BaseCheck chainCheck;
+
     /**
      * Фильтр, используемый системой
      */
@@ -28,6 +31,7 @@ public class SystemManager implements IterableCollection {
     public SystemManager() {
         this.userList = new ArrayList<>();
         this.filter = null;
+        this.chainCheck = null;
         System.out.println("System manager has been initialized");
     }
 
@@ -97,6 +101,22 @@ public class SystemManager implements IterableCollection {
 
     public void setFilter(Filter filter) {
         this.filter = filter;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setChainCheck(BaseCheck chainCheck) {
+        this.chainCheck = chainCheck;
+    }
+
+    public void logIn(String FIO) {
+        System.out.println(FIO + " is trying to log in");
+        if(chainCheck.check(FIO))
+            System.out.println("You have successfully logged in!");
+        else
+            System.out.println("Login failed");
     }
 
 }
