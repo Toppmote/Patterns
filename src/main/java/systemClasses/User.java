@@ -1,17 +1,15 @@
 package systemClasses;
 
-import lombok.Getter;
-import lombok.Setter;
 import memento.Memento;
 import memento.UserSnapshot;
+import state.BlockedState;
 import state.UnverifiedState;
 import state.UserState;
+import state.VerifiedState;
 import systemClasses.userActions.UserAction;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * Класс, описывающий пользователя социальной сети
@@ -135,7 +133,9 @@ public class User {
      *
      * @param friend удаляемый друг
      */
-    public void deleteFriend(User friend) { this.friendsList.remove(friend);}
+    public void deleteFriend(User friend) {
+        this.friendsList.remove(friend);
+    }
 
     /**
      * Процедура отправки сообщения
@@ -157,6 +157,7 @@ public class User {
 
     /**
      * Процедура восстановления объекта из снимка
+     *
      * @param memento снимок объекта
      * @throws CloneNotSupportedException исключение, выбрасываемое при передаче снимка другого объекта
      */
@@ -171,6 +172,24 @@ public class User {
         this.activityFeed.addAll(memento.getActivityFeed());
         this.messageList.clear();
         this.messageList.addAll(memento.getMessagesList());
+    }
+
+    /**
+     * Статическая процедура верификации пользователя
+     *
+     * @param user пользователь
+     */
+    public static void doVerification(User user) {
+        System.out.println("User with FIO " + user.getFIO() + " verified his account.");
+        user.setState(new VerifiedState(user));
+    }
+
+    /**
+     * Процедура выкладывания пользователем вредоносной записи, после которой он блокируется в соц. сети
+     */
+    public void doBadPost() {
+        System.out.println("User " + this.FIO + " made bad post.");
+        this.state = new BlockedState(this);
     }
 
 }
