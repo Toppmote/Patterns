@@ -1,5 +1,6 @@
 package systemClasses.filters;
 
+import observer.Subscriber;
 import systemClasses.FilterResult;
 import systemClasses.Message;
 import systemClasses.User;
@@ -7,9 +8,9 @@ import systemClasses.User;
 import java.util.List;
 
 /**
- * Интерейс, представляющий фильтр
+ * Интерейс, представляющий фильтр. Наследуется от интерфейса-подписчика
  */
-public interface Filter {
+public interface Filter extends Subscriber {
 
     /**
      * Метод, возвращающий результат фильтрации в виде объекта {@link systemClasses.FilterResult}

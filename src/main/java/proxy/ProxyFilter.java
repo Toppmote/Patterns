@@ -1,6 +1,7 @@
 package proxy;
 
 import lombok.Setter;
+import observer.Group;
 import systemClasses.FilterResult;
 import systemClasses.Message;
 import systemClasses.User;
@@ -44,4 +45,8 @@ public class ProxyFilter implements Filter {
         this.filter.addFilterResult(result);
     }
 
+    @Override
+    public void react(Group group) {
+
+    }
 }

@@ -2,6 +2,8 @@ package systemClasses;
 
 import memento.Memento;
 import memento.UserSnapshot;
+import observer.Group;
+import observer.Subscriber;
 import state.BlockedState;
 import state.UnverifiedState;
 import state.UserState;
@@ -14,7 +16,7 @@ import java.util.List;
 /**
  * Класс, описывающий пользователя социальной сети
  */
-public class User {
+public class User implements Subscriber {
 
     /**
      * ID пользователя. Уникально
@@ -192,4 +194,8 @@ public class User {
         this.state = new BlockedState(this);
     }
 
+    @Override
+    public void react(Group group) {
+        System.out.println("User " + this.FIO + " reacted to the new post of the \"" + group.name + "\" group");
+    }
 }

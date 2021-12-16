@@ -4,6 +4,7 @@ import chainOfResponsibility.BaseCheck;
 import iterator.IterableCollection;
 import iterator.Iterator;
 import iterator.ListIterator;
+import observer.Group;
 import systemClasses.filters.Filter;
 
 import java.util.ArrayList;
@@ -117,6 +118,16 @@ public class SystemManager implements IterableCollection {
             System.out.println("You have successfully logged in!");
         else
             System.out.println("Login failed");
+    }
+
+    /**
+     * Метод создания новой группы
+     *
+     * @param name наименование новой группы
+     * @return объект новой группы
+     */
+    public Group createGroup(String name) {
+        return new Group(name, this.filter);
     }
 
 }

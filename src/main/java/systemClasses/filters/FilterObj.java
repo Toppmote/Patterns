@@ -1,5 +1,6 @@
 package systemClasses.filters;
 
+import observer.Group;
 import systemClasses.FilterResult;
 import systemClasses.Message;
 import systemClasses.User;
@@ -58,5 +59,10 @@ public class FilterObj implements Filter {
 
     public void setAlgorithm(Algorithm algorithm) {
         this.algorithm = algorithm;
+    }
+
+    @Override
+    public void react(Group group) {
+        System.out.println("System filter reacted to the new post of the \"" + group.name + "\" group");
     }
 }
